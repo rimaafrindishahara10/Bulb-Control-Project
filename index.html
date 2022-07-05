@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Control</title>
+    <style>
+         img{
+            width: 400px;
+            height: 450px;
+            display: block;
+            margin:auto;
+
+        }
+        .bulb-container{
+            padding: 20px;
+            background: color hsla(0, 0%, 91%, 0.544);
+            
+        }
+        .center{
+            text-align: center;
+            padding: 15px;
+            margin: auto;
+        }
+        button{
+            padding: 10px;
+            background-color: #e2e2e2;
+            text-decoration: solid;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center ;color:orange">Here is my Bulb Control</h1>
+
+   <div class="center">
+    <button style="color:red ;" onclick="turnOff()">Turn Off</button>
+    <button style="color: blue;" onclick="turnOn()">Turn On</button>
+    <button style="color: green;" id="OnOff" onclick="toggleBulb()">ON</button>
+
+
+   </div>
+    <div class="bulb-container">
+      <img id ="im" src="Off.png" alt="">
+
+    </div>
+
+    <script>
+
+        //turn On
+        const turnOn=()=>{
+          let ImgOb= document.getElementById("im");
+
+          ImgOb.setAttribute("src",'On.png');
+
+     }
+
+     //turn Off
+     const turnOff=()=>{
+          let ImgOb= document.getElementById("im");
+
+          ImgOb.setAttribute("src",'Off.png');
+
+     }
+
+     //toggle
+     const toggleBulb=()=>{
+        let ImgOb= document.getElementById('im');
+        let srcValue=ImgOb.getAttribute('src');
+        let buttonOb=document.getElementById('OnOff');
+        
+        if(srcValue == 'Off.png'){
+            turnOn();
+            buttonOb.innerHTML='OFF';
+        }
+        else{
+            turnOff();
+            buttonOb.innerHTML='ON';
+        }
+     }
+      
+
+
+     
+
+    </script>
+</body>
+</html>
